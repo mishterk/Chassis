@@ -53,7 +53,12 @@ class chassis::php (
 		$php_dir = 'php5'
 	}
 
-	$packages = prefix([ 'fpm', 'cli', 'common' ], "${php_package}-")
+	if versioncmp( "${version}", '7.0') >= 0 {
+		$packages = prefix([ 'fpm', 'cli', 'common', 'mbstring' ], "${php_package}-")
+	} else {
+		$packages = prefix([ 'fpm', 'cli', 'common' ], "${php_package}-")
+	}
+
 	$prefixed_extensions = prefix($extensions, "${php_package}-")
 
 	# Hold the packages at the necessary version
