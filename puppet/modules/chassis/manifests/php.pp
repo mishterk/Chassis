@@ -54,7 +54,7 @@ class chassis::php (
 	}
 
 	if versioncmp( "${version}", '7.0') >= 0 {
-		$packages = prefix([ 'fpm', 'cli', 'common', 'mbstring' ], "${php_package}-")
+		$packages = prefix([ 'fpm', 'cli', 'common', 'mbstring', 'xml' ], "${php_package}-")
 	} else {
 		$packages = prefix([ 'fpm', 'cli', 'common' ], "${php_package}-")
 	}
