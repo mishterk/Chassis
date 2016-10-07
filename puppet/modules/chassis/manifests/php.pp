@@ -54,9 +54,9 @@ class chassis::php (
 	}
 
 	if versioncmp( "${version}", '7.0') >= 0 {
-		$packages = prefix([ 'fpm', 'cli', 'common', 'mbstring', 'xml' ], "${php_package}-")
+		$packages = concat( ( prefix([ 'fpm', 'cli', 'common', 'mbstring', 'xml' ], "${php_package}-") ), ['php-imagick'] )
 	} else {
-		$packages = prefix([ 'fpm', 'cli', 'common' ], "${php_package}-")
+		$packages = concat( ( prefix([ 'fpm', 'cli', 'common' ], "${php_package}-") ), ['php-imagick'] )
 	}
 
 	$prefixed_extensions = prefix($extensions, "${php_package}-")
