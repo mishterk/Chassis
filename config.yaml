@@ -38,8 +38,8 @@ ip: dhcp
 apt_mirror: Yes
 
 # Should we use multisite?
-# (Only subdirectories are supported currently)
-# Values: Yes, No
+# (Set to Yes for subdirectories)
+# Values: No, Yes, subdomains
 multisite: No
 
 # Database configuration
@@ -69,6 +69,13 @@ paths:
 
     # Content directory. Relative to the base directory.
     content: content
+
+# Synced Folders
+#
+# You can sync as many folders as you like. We sync the nginx and php log folders by default.
+synced_folders:
+    logs/nginx: /var/log/nginx
+    logs/php: /var/log/php
 
 # Plugins
 #

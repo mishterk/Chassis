@@ -31,7 +31,12 @@ This is a non-exhaustive list of what's available to drop into your Chassis box.
 
 * `Debugging`_: A Chassis extension to install and activate common WordPress plugins used for debugging during development.
 
-* `OpenSSL`_: A Chassis extension to install SSL.
+* `NodeJS`_: A Chassis extension to install NodeJS.
+
+* `Imagick`_: A Chassis extension to install ImageMagick.
+
+* `Fish`_: A Chassis extension to install Fish Shell.
+
 
 .. _Memcache: https://github.com/Chassis/memcache
 .. _Redis: https://github.com/shadyvb/chassis-redis
@@ -44,7 +49,9 @@ This is a non-exhaustive list of what's available to drop into your Chassis box.
 .. _Query Monitor: https://github.com/Chassis/Query-Monitor
 .. _Debugging: https://github.com/Chassis/Debugging
 .. _OpenSSL: https://github.com/javorszky/chassis-openssl
-
+.. _NodeJS: https://github.com/Chassis/nodejs
+.. _Imagick: https://github.com/Chassis/Imagick
+.. _Fish: https://github.com/Chassis/Fish
 
 Creating your own
 -----------------
