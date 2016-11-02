@@ -105,18 +105,6 @@ class chassis::php (
 		]
 	}
 
-	# Set up the configuration files
-	if 'xdebug' in $extensions {
-		file { "/etc/${php_dir}/fpm/conf.d/xdebug.ini":
-			content => template('chassis/xdebug.ini.erb'),
-			owner   => 'root',
-			group   => 'root',
-			mode    => 0644,
-			require => Package["${php_package}-fpm","${php_package}-xdebug"],
-			ensure  => 'present',
-			notify  => Service["${php_package}-fpm"],
-		}
-	}
 
 	file { "/etc/${php_dir}/fpm/php.ini":
 		content => template('chassis/php.ini.erb'),
