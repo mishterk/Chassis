@@ -3,6 +3,7 @@ class chassis::php (
 	$version = "5.4",
 ) {
 	apt::ppa { "ppa:ondrej/php5-oldstable": }
+	apt::ppa { "ppa:ondrej/php5-5.6": }
 	apt::ppa { "ppa:ondrej/php": }
 
 	if $version =~ /^(\d+)\.(\d+)$/ {
