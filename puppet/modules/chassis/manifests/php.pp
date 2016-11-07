@@ -1,9 +1,8 @@
 class chassis::php (
 	$extensions = [],
-	$version = "5.4",
+	$version = "5.6",
 ) {
 	apt::ppa { "ppa:ondrej/php5-oldstable": }
-	apt::ppa { "ppa:ondrej/php5-5.6": }
 	apt::ppa { "ppa:ondrej/php": }
 
 	if $version =~ /^(\d+)\.(\d+)$/ {
@@ -49,9 +48,35 @@ class chassis::php (
 	if versioncmp( "${version}", '7.0') >= 0 {
 		$php_package = "php${version}"
 		$php_dir = "php/${version}"
-	} else {
+		package { 'php5':
+			ensure  => absent,
+			require => Package["${php_package}-fpm"],
+			notify  => Service["${php_package}-fpm"]
+		}
+	}
+	elsif ( versioncmp( "${version}", '5.4') == 0 ) {
 		$php_package = 'php5'
 		$php_dir = 'php5'
+		package { 'php5.6-fpm':
+			ensure  => absent,
+			notify  => Service['php5-fpm']
+		}
+		package { 'php5.5-fpm':
+			ensure  => absent,
+			notify  => Service['php5-fpm']
+		}
+		package { 'php7.0-fpm':
+			ensure  => absent,
+			notify  => Service['php5-fpm']
+		}
+		package { 'php7.1-fpm':
+			ensure  => absent,
+			notify  => Service['php5-fpm']
+		}
+	}
+	else {
+		$php_package = "php${version}"
+		$php_dir = "php/${version}"
 	}
 
 	if versioncmp( "${version}", '7.0') >= 0 {

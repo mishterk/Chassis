@@ -5,12 +5,6 @@ $config = sz_load_config()
 $extensions = sz_extensions('/vagrant/extensions')
 $php_extensions = [ 'curl', 'gd', 'mysql' ]
 
-if versioncmp( "${config[php]}", '7.0') >= 0 {
-	Class['mysql'] -> Package["php${config[php]}-fpm"]
-} else {
-	Class['mysql'] -> Package['php5-mysql']
-}
-
 class { 'chassis::php':
 	extensions => $php_extensions,
 	version => $config[php]
