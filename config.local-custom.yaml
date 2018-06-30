@@ -1,0 +1,31 @@
+# Custom Chassis Configuration
+
+hosts:
+    - {{DOMAIN}}
+
+admin:
+    user: admin
+    email: admin@example.com
+    password: password
+
+paths:
+    content: wp-content
+
+plugins:
+    - query-monitor
+    - duplicate-post
+    - force-regenerate-thumbnails
+    - redirection
+    - rewrite-rules-inspector
+    - tinymce-advanced
+    - user-switching
+    - wordpress-seo
+
+extensions:
+    - https://github.com/Chassis/MailHog.git
+    - https://github.com/Chassis/db-backup.git
+    - https://github.com/Chassis/Tester.git
+    - https://github.com/Chassis/phpMyAdmin.git
+    - https://github.com/Chassis/Xdebug.git
+
+php: 7.1
