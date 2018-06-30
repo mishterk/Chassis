@@ -15,7 +15,7 @@
 #
 # (When overriding, include vagrant.local if you need it)
 hosts:
-    - vagrant.local
+    - {{DOMAIN}}
 
 # IP address to use on the private network
 #
@@ -69,7 +69,7 @@ paths:
     wp: wp
 
     # Content directory. Relative to the base directory.
-    content: content
+    content: wp-content
 
 # Synced Folders
 #
@@ -81,8 +81,15 @@ synced_folders:
 # Plugins
 #
 # Install and activate a list of plugins from wp.org
-#plugins:
-#    - query-monitor
+plugins:
+    - query-monitor
+    - duplicate-post
+    - force-regenerate-thumbnails
+    - redirection
+    - rewrite-rules-inspector
+    - tinymce-advanced
+    - user-switching
+    - wordpress-seo
 
 # Themes
 #
@@ -94,13 +101,16 @@ synced_folders:
 # Extensions
 #
 # Install a list of extensions automatically
-#extensions:
-#  - Chassis/Tester
-#  - git@github.com:Chassis/memcache.git
+extensions:
+    - https://github.com/Chassis/MailHog.git
+    - https://github.com/Chassis/db-backup.git
+    - https://github.com/Chassis/Tester.git
+    - https://github.com/Chassis/phpMyAdmin.git
+    - https://github.com/Chassis/Xdebug.git
 
 # PHP version
 # Values: 5.6, 7.0, 7.1, 7.2 (or 5.6.30)
-php: 7.0
+php: 7.1
 
 # VirtualBox-specific customisations.
 virtualbox:
