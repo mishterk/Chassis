@@ -16,6 +16,12 @@ site_domain="http://{{DOMAIN}}";
 #'wp-content/plugins/some-plugin'
 #);
 
+# site_domain will open by default on VM boot, but these will also open in the default browser
+#declare -a urls_to_open=(
+#    'http://example.com'
+#    'http://example.com/page/two'
+#);
+
 # these are passed into the vagrant ssh -c '' command arg
 # e.g;
 # append '; exec $SHELL' to remain logged in
